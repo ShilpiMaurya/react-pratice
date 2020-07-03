@@ -16,9 +16,12 @@ function Learning() {
     console.log("mouse is over me");
   };
   useEffect(() => {
-    console.log(``);
+    console.log(`this has been clicked ${count} times`);
     document.addEventListener("mouseover", mouseHandler);
-  });
+    return () => {
+      document.removeEventListener("mouseover", mouseHandler);
+    };
+  }, [count]);
   return (
     <>
       <h1>welcome back</h1>
